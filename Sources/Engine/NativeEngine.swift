@@ -34,7 +34,7 @@ public class NativeEngine: NSObject, Engine, URLSessionDataDelegate, URLSessionW
     public func start(request: URLRequest) {
         let session = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil)
         task = session.webSocketTask(with: request)
-        task.maximumMessageSize = 16777216
+        task?.maximumMessageSize = 16777216
         doRead()
         task?.resume()
     }
